@@ -927,6 +927,13 @@ if (stdout) reply(`✅ *El bot se ah actualizado de forma satisfactoria*\n Infor
 })
 break
 
+case 'restart':
+  case 'reiniciar':
+             if (!isOwner) return reply(ownerB()) 
+           //  reply(`✳️ Espere un momento el bot se está reiniciando`)
+             exec(`node main`)
+             reply('✅ El bot se reinicio')
+break
 
 case 'nulis':
 	case 'tulis':
@@ -2557,9 +2564,9 @@ if (!isVerify) return reply(userB(prefix))
        case 'runtime':    
 if (!isVerify) return reply(userB(prefix))
   if (isBanned) return reply(banf()) 
-					runtime = process.uptime()
-					runte = `「 *TIEMPO DE EJECUCION* 」\n\n*${kyun(runtime)}*`
-					reply(`${runte}`)
+					runtim = process.uptime()
+					runte = `「 *TIEMPO DE EJECUCION* 」\n\n*${kyun(runtim)}*`
+					reply(runte)
 					break
 					
       case 'speed':
@@ -2654,9 +2661,9 @@ if (!isVerify) return reply(userB(prefix))
             }
             break	
             
-//-----------------------------ATTP - TTP----------------------------
+//-----------------------------ATTP -----------------------------
 
-						case 'ttp':  
+						/*case 'ttp':  
              if (!isVerify) return reply(userB(prefix))
   if (isBanned) return reply(banf())
 if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${prefix + command}* DyLux`)
@@ -2664,7 +2671,7 @@ if (args.length < 1) return reply(`✳️ _Envie el texto_\n\n📌Ejemplo *${pre
                     F = q
                     anu1 = await getBuffer(`https://lolhuman.herokuapp.com/api/ttp3?apikey=${lolkey}&text=${F}`)
                     Fg.sendMessage(from, anu1, sticker, {quoted: mek})
-                    break
+                    break*/
                     
 
 	case 'attp':
