@@ -133,7 +133,7 @@ Fg.on('group-participants-update', async (anu) => {
  * @param {function} cb <optional> 
  */
 function nocache(module, cb = () => { }) {
-    console.log('Module', `'${module}'`, 'Se está revisando!')
+    console.log('Module', `'${module}'`, 'Abriendo!')
     fs.watchFile(require.resolve(module), async () => {
         await uncache(require.resolve(module))
         cb(module)
