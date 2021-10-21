@@ -923,7 +923,7 @@ if (!isOwner) return reply(ownerB())
 reply(`✳️ Espere un momento el bot se está actualizando`)
 exec(`bash update.sh`, (err, stdout) => {
 if (err) return reply(err)
-if (stdout) reply(`✅ *El bot se ah actualizado de forma satisfactoria*\n Informe de la actualización:\n\n${stdout}\n\n Los cambios serán reflejados la próxima vez que inicie el bot.`)
+if (stdout) reply(`✅ *El bot se ah actualizado de forma satisfactoria*\n\n📌 Use el comando *${prefix}reiniciar* para aplicar los cambios\n\nInforme de la actualización:\n\n${stdout}`)
 })
 break
 
@@ -1807,7 +1807,7 @@ _📤 El video se está enviando, si no llega descargue por el link_`
 				}
 				break
 		
- case 'play':
+ /*case 'play':
 			if (!isVerify) return reply(userB(prefix))
   if (isBanned) return reply(banf())
     if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
@@ -1841,7 +1841,29 @@ _📤 Enviando, espere si el audio no aparece, descargue por el link_`
                         })
                         } catch (err) {
                         reply(mess.error.api) }
-                   break
+                   break*/
+                  
+                  case 'play':
+if (!isVerify) return reply(userB(prefix))
+  if (isBanned) return reply(banf())
+if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
+reply(wait())
+  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${q}`)
+  judul = pl.result.title
+  lagu = pl.result.url_audio
+  size = pl.result.size
+  foto = pl.result.thumbnail
+  durasi = pl.result.duration
+  capt = `≡ *PLAY*
+▢ *Título* : ${judul}
+▢ *Peso* : ${size}
+▢ *Duracion* : ${durasi}`
+  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ El archivo es demasiado grande, la reproducción de música se canceló, el tamaño máximo del archivo es de 99 mb`)
+  thumb = await getBuffer(foto)
+  Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
+  mp3 = await getBuffer(lagu)
+  Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
+  break
    
       case 'video':
 				case 'playvideo':
