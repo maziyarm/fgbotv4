@@ -746,7 +746,7 @@ if (!isVerify) return reply(userB(prefix))
 break
    
 //--- verificación 
-case 'verify':
+/*case 'verify':
 case 'reg':
 case 'verificar':
 case 'register':
@@ -770,9 +770,9 @@ Verificación completa usa *${prefix}Help* para ver el Menu`
 
 rgimg = await getBuffer(ppimg)
 Fg.sendMessage(from, rgimg, image, {quoted: mek, caption: capt})
-break
+break*/
 
-/*case 'verify':
+case 'verify':
 			if (isVerify) return reply('*✳️ Tu cuenta ya esta registrada*')
 					_user.push(sender)
 fs.writeFileSync('./database/verify.json', JSON.stringify(_user))
@@ -785,7 +785,7 @@ fs.writeFileSync('./database/verify.json', JSON.stringify(_user))
 
 Verificación completa usa *${prefix}Help* para ver el Menu`
 reply(capt)
-break*/
+break
 
 //-- Simsimi
 case 'simi':
